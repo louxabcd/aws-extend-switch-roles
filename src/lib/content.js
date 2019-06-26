@@ -123,7 +123,7 @@ function loadProfiles(profileSet, list, csrf, hidesHistory, hidesAccountId) {
     if (!hidesAccountId) name += '  |  ' + item.aws_account_id;
 
     var color = item.color || 'aaaaaa';
-    var actionHost = window.location.host.endsWith('.amazonaws-us-gov.com') ? 'signin.amazonaws-us-gov.com' : 'signin.aws.amazon.com';
+    var actionHost = window.location.host.endsWith('.amazonaws.cn') ? 'signin.amazonaws.cn' : (window.location.host.endsWith('.amazonaws-us-gov.com') ? 'signin.amazonaws-us-gov.com' : 'signin.aws.amazon.com');
     if (!item.image) {
         list.insertAdjacentHTML('beforeend', Sanitizer.escapeHTML`<li>
          <form action="https://${actionHost}/switchrole" method="POST" target="_top" data-aesr-profile="${item.profile}">
